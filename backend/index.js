@@ -1,0 +1,24 @@
+const express = require("express");
+const databseConnection = require("./src/databse.js")
+const app = express();
+const port = 3000;
+require('dotenv').config();
+const cookieParser = require("cookie-parser");
+
+app.use(cookieParser());
+app.use(express.json());
+
+databseConnection()
+.then(() => {
+  console.log("database is connected")
+})
+.then(() => {
+  app.listen(port, function(err){
+    if(err) console.log(err)
+    console.log("app is listning on port :", port)
+  })
+})
+
+const userRouter = require("./src/routes/user.router.js");
+
+app.use(userRouter);
