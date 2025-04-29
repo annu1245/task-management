@@ -49,10 +49,10 @@ userRouter.post("/login", async(req, res) => {
       return res.status(400).json({ error: 'Invalid email or password' });
     }
 
-    const token = jwt.sign({_id: user._id}, process.env.JWT_SECRET_KEY, {expiresIn: '1d'})
+    const token = await jwt.sign({_id: user._id}, process.env.JWT_SECRET_KEY, {expiresIn: '1d'})
     res.cookie("token", token, {httpOnly: true, secure: false})
 
-    return res.status(200).json({ message: 'Login successful' }, {data: user});
+    return res.status(200).json({ message: 'Login successful', data: user});
   } catch (error) {
     console.log(error.message);
     res.status(400).json({ error: error.message });

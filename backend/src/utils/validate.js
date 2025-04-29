@@ -1,14 +1,14 @@
 export function validate(data) {
   const {email, password} = data;
 
-  const passwordRegex = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/;
-  const emailRegex = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/
+  const isEmailValid = /^[a-zA-Z0-9_.±]+@[a-zA-Z0-9-]+.[a-zA-Z0-9-.]+$/.test(email);
+  const isPasswordValid = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password);
   
-  if(!emailRegex.test(email)) {
+  if(!isEmailValid) {
     throw new Error("email id not valid")
   }
 
-  else if(!passwordRegex.test(password)) {
+  else if(!isPasswordValid) {
     throw new Error("password is not valid")
   }
 

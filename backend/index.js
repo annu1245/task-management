@@ -2,9 +2,15 @@ const express = require("express");
 const databseConnection = require("./src/databse.js")
 const app = express();
 const port = 3000;
+const cors = require("cors");
+
 require('dotenv').config();
 const cookieParser = require("cookie-parser");
 
+app.use(cors({
+  origin: "http://localhost:5173",
+  credentials: true
+}));
 app.use(cookieParser());
 app.use(express.json());
 
