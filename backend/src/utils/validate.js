@@ -14,3 +14,14 @@ export function validate(data) {
 
   return null;
 }
+
+export function validateTask(data) {
+  const {title, description, status, date, userId} = data;
+  if (title.length <= 0) {
+    throw new Error("title is required")
+  }
+
+  else if(description && description.length <= 0) {
+    throw new Error("description is required")
+  }
+}

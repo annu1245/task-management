@@ -26,5 +26,7 @@ databseConnection()
 })
 
 const userRouter = require("./src/routes/user.router.js");
+const taskRouter = require("./src/routes/task.router.js");
 
 app.use(userRouter);
+app.use("/task", taskRouter);
