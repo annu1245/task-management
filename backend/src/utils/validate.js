@@ -5,11 +5,11 @@ export function validate(data) {
   const isPasswordValid = /^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/.test(password);
   
   if(!isEmailValid) {
-    throw new Error("email id not valid")
+    throw new Error("Invalid credentials")
   }
 
   else if(!isPasswordValid) {
-    throw new Error("password is not valid")
+    throw new Error("Invalid credentials")
   }
 
   return null;

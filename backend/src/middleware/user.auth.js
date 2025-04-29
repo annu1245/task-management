@@ -4,8 +4,7 @@ function userAuth(req, res, next) {
   console.log(req.cookies.token)
   const token = req.cookies.token;
   if(!token) {
-    console.log("if")
-    return res.status(401).json({ error: 'No token provided. Access denied.' });
+    return res.status(401).send("Please Login!");
   }
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET_KEY);
