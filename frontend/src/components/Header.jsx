@@ -39,9 +39,15 @@ const Header = () => {
                         </button>
                     </>
                 ) : (
-                    <Link to="/login" className="btn btn-primary btn-sm">
-                        Login
-                    </Link>
+                    <div>
+                        <Link to="/login" className="btn btn-primary btn-sm mx-4">
+                            Login
+                        </Link>
+
+                        <Link to="/register" className="btn btn-secondary btn-sm mx-4">
+                            Register
+                        </Link>
+                    </div>
                 )}
             </div>
         </div>
