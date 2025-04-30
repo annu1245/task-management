@@ -17,7 +17,6 @@ const Dashboard = () => {
         if (!userData) return;
         try {
             const res = await axios.get(BASE_URL + "/task", { withCredentials: true });
-            console.log(res.data.data);
             setTasks(res.data.data);
             setFilteredTasks(res.data.data); // Set tasks in filteredTasks initially
         } catch (error) {

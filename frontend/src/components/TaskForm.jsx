@@ -40,25 +40,21 @@ function TaskFormPage() {
         e.preventDefault();
 
         if (taskData) {
-            console.log("Update existing task:", formData);
             // call update API
             axios
                 .patch(BASE_URL + `/task/edit/${taskData._id}`, formData, { withCredentials: true })
                 .then((res) => {
-                    console.log("Task updated successfully:", res.data);
-                    navigate("/"); // redirect to home after successful update
+                    navigate("/"); // redirect to home
                 })
                 .catch((err) => {
                     console.error("Error updating task:", err.response?.data || err.message);
                 });
         } else {
-            console.log("Create new task:", formData);
             // call create API
             axios
                 .post(BASE_URL + "/task/create", formData, { withCredentials: true })
                 .then((res) => {
-                    console.log("Task created successfully:", res.data);
-                    navigate("/"); // redirect to home after successful creation
+                    navigate("/"); // redirect to home
                 })
                 .catch((err) => {
                     console.error("Error creating task:", err.response?.data || err.message);
@@ -73,8 +69,7 @@ function TaskFormPage() {
         axios
             .delete(BASE_URL + `/task/delete/${taskData._id}`, { withCredentials: true })
             .then((res) => {
-                console.log("Task deleted successfully:", res.data);
-                navigate("/"); // redirect to home after task is deleted
+                navigate("/"); // redirect to home
             })
             .catch((err) => {
                 console.error("Error deleting task:", err.response?.data || err.message);

@@ -22,7 +22,6 @@ const Register = () => {
                 email,
                 password
             }, {withCredentials: true})
-            console.log(res)
             navigate("/login")
         } catch (error) {
             setError(error?.response?.data || "something went wrong")
