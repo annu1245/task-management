@@ -37,7 +37,7 @@ userRouter.post("/login", async(req, res) => {
     const user = await User.findOne({email});
 
     if(!user) {
-      return res.status(400).send('Invalid email or password');
+      return res.status(400).send('Not an existing user');
     }
 
     const isPasswordMatch = bcrypt.compare(password, user.password);

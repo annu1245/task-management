@@ -1,8 +1,13 @@
 const mongoose = require("mongoose");
 
 async function databseConnection() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/task-management")
+  try {
+    console.log(process.env.MONGODB_URI);
+    await mongoose.connect(process.env.MONGODB_URI, { serverApi: { version: "1", strict: true, deprecationErrors: true } });
+  } catch (error) {
+    console.log(error)
+  }
+  
 }
-
 
 module.exports = databseConnection;
