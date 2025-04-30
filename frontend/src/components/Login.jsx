@@ -6,8 +6,8 @@ import {useNavigate} from "react-router";
 import { BASE_URL } from "../utils/constants";
 
 const Login = () => {
-    const [email, setEmailId] = useState("abc@gmail.com");
-    const [password, setPassword] = useState("ab@12333ereAS");
+    const [email, setEmailId] = useState("");
+    const [password, setPassword] = useState("");
 
     const [error, setError] = useState("")
 
@@ -45,7 +45,7 @@ const Login = () => {
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend">Password</legend>
                         <input 
-                            type="text" 
+                            type="password" 
                             className="input" 
                             placeholder="passsword"
                             value={password}

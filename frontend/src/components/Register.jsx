@@ -1,7 +1,6 @@
 import axios from "axios";
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { addUser } from "../utils/userSlice";
+import { useSelector } from "react-redux";
 import {useNavigate} from "react-router";
 import { BASE_URL } from "../utils/constants";
 
@@ -58,12 +57,22 @@ const Register = () => {
                     <fieldset className="fieldset">
                         <legend className="fieldset-legend">Password</legend>
                         <input 
-                            type="text" 
+                            type="password" 
                             className="input" 
                             placeholder="passsword"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)} 
                             />
+                            <label>
+                                <ol>
+                                Rules:
+                                    <li>Minimum 1 capital letter</li>
+                                    <li>Minimum 1 small letter</li>
+                                    <li>Minimum 1 number</li>
+                                    <li>Minimum 1 special character</li>
+                                    <li>Minimum password length 8</li>
+                                </ol>
+                            </label>
                     </fieldset>
                     <p className="text-red-500 font-bold">{error}</p>
                     <div className="card-actions justify-center mt-4">

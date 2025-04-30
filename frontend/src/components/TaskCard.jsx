@@ -29,7 +29,7 @@ const TaskCard = ({ title, description, status, dueDate }) => {
         <span className={`px-3 py-1 rounded-full text-white capitalize ${getStatusColor(status)}`}>
           {status}
         </span>
-        <span>Due Date: {new Date(dueDate).toLocaleDateString()}</span>
+        <span className="ml-5">Due Date: {new Date(dueDate).toLocaleDateString()}</span>
       </div>
     </div>
   );

@@ -32,11 +32,11 @@ const Layout = () => {
 
   return (
     <>
-      <Header />
+      <Header style={{ minHeight: '10vh' }} />
       <main style={{ minHeight: '80vh', padding: '1rem' }}>
         <Outlet />
       </main>
-      <Footer />
+      <Footer style={{ minHeight: '10vh' }} />
     </>
   );
 };

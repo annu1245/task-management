@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { BASE_URL } from "../utils/constants";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { modifyDate } from "../utils/helper.js";
 import { Link } from "react-router-dom";
 import TaskCard from "./TaskCard";
 
@@ -51,7 +50,7 @@ const Dashboard = () => {
                 <div>
                     <select value={filterStatus} onChange={handleFilterChange} className="px-4 py-2 bg-gray-700 text-white rounded">
                         <option value="all">All Tasks</option>
-                        <option value="To Do">To do</option>
+                        <option value="To Do">To Do</option>
                         <option value="In Progress">In Progress</option>
                         <option value="Done">Done</option>
                     </select>
