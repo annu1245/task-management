@@ -52,7 +52,6 @@ taskRouter.delete("/delete/:id", userAuth, async (req, res) => {
   }
 });
 
-
 //get all task of loggedin user
 taskRouter.get("/", userAuth, async (req, res) => {
   try {
@@ -63,7 +62,5 @@ taskRouter.get("/", userAuth, async (req, res) => {
     res.status(400).send(error.message);
   }
 })
-
-
 
 module.exports = taskRouter;

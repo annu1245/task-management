@@ -65,15 +65,17 @@ function TaskFormPage() {
     const handleDelete = () => {
         if (!taskData) return;
 
-        // Make delete request to backend
-        axios
-            .delete(BASE_URL + `/task/delete/${taskData._id}`, { withCredentials: true })
-            .then((res) => {
-                navigate("/"); // redirect to home
-            })
-            .catch((err) => {
-                console.error("Error deleting task:", err.response?.data || err.message);
-            });
+        if (confirm("Are you sure?")) {
+            // Make delete request to backend
+            axios
+                .delete(BASE_URL + `/task/delete/${taskData._id}`, { withCredentials: true })
+                .then((res) => {
+                    navigate("/"); // redirect to home
+                })
+                .catch((err) => {
+                    console.error("Error deleting task:", err.response?.data || err.message);
+                });
+        }
     };
 
     return (

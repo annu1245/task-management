@@ -17,7 +17,7 @@ const Register = () => {
     const handleLRegister = async() => {
       if (userData) return;
         try {
-            const res = await axios.post(BASE_URL + "/register", {
+            await axios.post(BASE_URL + "/register", {
                 username,
                 email,
                 password
